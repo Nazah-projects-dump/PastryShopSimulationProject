@@ -1,6 +1,7 @@
 module pastryshopsimulation {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.graphics;
 
     exports common;
     opens common to javafx.fxml;

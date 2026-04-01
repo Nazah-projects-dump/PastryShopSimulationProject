@@ -18,7 +18,7 @@ public class LoginController {
     @FXML
     public void customerLoginButtonOnAction(ActionEvent actionEvent) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/customerLogin.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/CustomerLogin.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
 
@@ -32,7 +32,7 @@ public class LoginController {
     @FXML
     public void employeeLoginButtonOnAction(ActionEvent actionEvent) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/employeeLogin.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/EmployeeLogin.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
 

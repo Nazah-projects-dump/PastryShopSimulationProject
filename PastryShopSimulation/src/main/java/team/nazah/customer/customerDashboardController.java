@@ -2,7 +2,7 @@ package team.nazah.customer;
 
 import javafx.scene.control.Label;
 
-public class customerDashboardController
+public class CustomerDashboardController
 {
     @javafx.fxml.FXML
     private Label dashboardTestLabel;
