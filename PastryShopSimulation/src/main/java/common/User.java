@@ -36,7 +36,7 @@ public abstract class User {
                 '}';
     }
 
-    public abstract void getDashboard();
+    public abstract void showDashboard();
 
     public abstract boolean login();
 
