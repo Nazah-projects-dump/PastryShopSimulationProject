@@ -35,5 +35,12 @@ public abstract class User {
                 ", name='" + name + '\'' +
                 '}';
     }
-    
+
+    public abstract void getDashboard();
+
+    public abstract boolean login();
+
+    public void logout(){
+        //add later
+    }
 }
