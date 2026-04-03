@@ -1,4 +1,15 @@
 package team.nazah.customer;
 
-public class Customer {
+import common.User;
+
+public class Customer extends User {
+    @Override
+    public void showDashboard() {
+        
+    }
+
+    @Override
+    public boolean login() {
+        return false;
+    }
 }
