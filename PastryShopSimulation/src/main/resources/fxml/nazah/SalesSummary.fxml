@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="team.nazah.cashier.SalesSummaryController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team.nazah.cashier.SalesSummaryController">
+   <children>
+      <Label alignment="CENTER" layoutX="218.0" layoutY="37.0" prefHeight="32.0" prefWidth="163.0" style="-fx-background-color: pink;" text="Sales Summary" />
+      <Label layoutX="180.0" layoutY="97.0" text="Pick a date :" />
+      <DatePicker fx:id="salesSummaryDatePicker" layoutX="255.0" layoutY="93.0" />
+      <TableView fx:id="salesSummaryTableView" layoutX="200.0" layoutY="154.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="orderIdColumn" prefWidth="100.0" text="Order ID" />
+          <TableColumn fx:id="totalColumn" prefWidth="99.20001220703125" text="Total" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>
