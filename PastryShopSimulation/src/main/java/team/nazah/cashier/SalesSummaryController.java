@@ -1,5 +1,6 @@
 package team.nazah.cashier;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -17,4 +18,9 @@ public class SalesSummaryController
 
     @javafx.fxml.FXML
     public void initialize() {
-    }}
+    }
+
+    @javafx.fxml.FXML
+    public void backButtonOnAction(ActionEvent actionEvent) {
+    }
+}
