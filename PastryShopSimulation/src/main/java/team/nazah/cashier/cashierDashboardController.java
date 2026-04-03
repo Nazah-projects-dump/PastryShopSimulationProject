@@ -1,9 +1,7 @@
 package team.nazah.cashier;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 
 public class CashierDashboardController
 {
@@ -20,7 +18,13 @@ public class CashierDashboardController
     @javafx.fxml.FXML
     private TableColumn cancellationReqsColumn;
     @javafx.fxml.FXML
-    private TableColumn incomingOrdersOpenColumn;
+    private TableColumn incomingOrdersStatusColumn;
+    @javafx.fxml.FXML
+    private TableColumn incomingOrdersOpenColumn1;
+    @javafx.fxml.FXML
+    private TextField orderIdFilterTextField;
+    @javafx.fxml.FXML
+    private ComboBox orderStatusFilterComboBox;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -32,5 +36,13 @@ public class CashierDashboardController
 
     @javafx.fxml.FXML
     public void viewSalesSummaryButtonOnAction(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void resetFiltersButtonOnAction(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void ApplyFiltersButtonOnAction(ActionEvent actionEvent) {
     }
 }
