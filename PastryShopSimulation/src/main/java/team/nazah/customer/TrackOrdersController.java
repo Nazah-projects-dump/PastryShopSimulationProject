@@ -20,4 +20,8 @@ public class TrackOrdersController
     @javafx.fxml.FXML
     public void cancelOrderButtonOnAction(ActionEvent actionEvent) {
     }
+
+    @javafx.fxml.FXML
+    public void backButtonOnAction(ActionEvent actionEvent) {
+    }
 }

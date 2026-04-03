@@ -21,4 +21,8 @@ public class FeedbackController
     @javafx.fxml.FXML
     public void submitFeedbackButtonOnAction(ActionEvent actionEvent) {
     }
+
+    @javafx.fxml.FXML
+    public void backButtonOnAction(ActionEvent actionEvent) {
+    }
 }

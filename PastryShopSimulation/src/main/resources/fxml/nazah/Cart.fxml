@@ -6,7 +6,6 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team.nazah.customer.CartController">
    <children>
       <TableView fx:id="cartTableView" layoutX="46.0" layoutY="74.0" prefHeight="200.0" prefWidth="512.0">
@@ -20,5 +19,6 @@
       </TableView>
       <Button layoutX="364.0" layoutY="319.0" mnemonicParsing="false" onAction="#placeOrderButtonOnAction" text="Place Order" />
       <Label fx:id="cartTotalLabel" alignment="CENTER" layoutX="89.0" layoutY="303.0" prefHeight="58.0" prefWidth="190.0" style="-fx-background-color: pink;" text="Total : " />
+      <Button layoutX="517.0" layoutY="361.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
    </children>
 </AnchorPane>

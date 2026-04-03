@@ -29,4 +29,8 @@ public class PaymentScreenController
     @javafx.fxml.FXML
     public void payNowButtonOnAction(ActionEvent actionEvent) {
     }
+
+    @javafx.fxml.FXML
+    public void backButtonOnAction(ActionEvent actionEvent) {
+    }
 }

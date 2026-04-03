@@ -6,7 +6,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team.nazah.customer.PaymentScreenController">
    <children>
       <Label fx:id="paymentScreenOrderIdLabel" layoutX="87.0" layoutY="80.0" prefHeight="26.0" prefWidth="131.0" text="Order ID : " />
@@ -20,5 +19,6 @@
       <Label layoutX="309.0" layoutY="276.0" text="Card Pin :" />
       <TextField fx:id="cardNumberTextField" layoutX="400.0" layoutY="247.0" />
       <TextField fx:id="cardPinTextField" layoutX="400.0" layoutY="281.0" />
+      <Button layoutX="524.0" layoutY="350.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
    </children>
 </AnchorPane>

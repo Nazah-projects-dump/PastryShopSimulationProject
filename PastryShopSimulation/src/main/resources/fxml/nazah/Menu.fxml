@@ -9,7 +9,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team.nazah.customer.MenuController">
    <children>
       <Label alignment="CENTER" layoutX="102.0" layoutY="24.0" prefHeight="33.0" prefWidth="114.0" style="-fx-background-color: pink;" text="Menu" />
@@ -32,5 +31,6 @@
       <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#resetFiltersButtonOnAction" prefHeight="26.0" prefWidth="406.0" text="Reset Filters" />
       <Label fx:id="filterStatusLabel" alignment="CENTER" layoutX="442.0" layoutY="340.0" prefHeight="42.0" prefWidth="138.0" text="Filter Status" />
       <Button layoutX="267.0" layoutY="28.0" mnemonicParsing="false" onAction="#viewCartFromMenuButtonOnAction" text="View Cart" />
+      <Button layoutX="356.0" layoutY="28.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
    </children>
 </AnchorPane>

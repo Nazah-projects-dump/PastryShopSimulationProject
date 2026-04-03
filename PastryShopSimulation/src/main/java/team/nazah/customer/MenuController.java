@@ -41,4 +41,8 @@ public class MenuController
     @javafx.fxml.FXML
     public void viewCartFromMenuButtonOnAction(ActionEvent actionEvent) {
     }
+
+    @javafx.fxml.FXML
+    public void backButtonOnAction(ActionEvent actionEvent) {
+    }
 }

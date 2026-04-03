@@ -29,4 +29,8 @@ public class CartController
     @javafx.fxml.FXML
     public void placeOrderButtonOnAction(ActionEvent actionEvent) {
     }
+
+    @javafx.fxml.FXML
+    public void backButtonOnAction(ActionEvent actionEvent) {
+    }
 }

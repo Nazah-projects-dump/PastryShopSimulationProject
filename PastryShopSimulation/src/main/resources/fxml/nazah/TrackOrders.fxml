@@ -5,7 +5,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team.nazah.customer.TrackOrdersController">
    <children>
       <Label alignment="CENTER" layoutX="187.0" layoutY="37.0" prefHeight="42.0" prefWidth="210.0" style="-fx-background-color: pink;" text="Track Orders" />
@@ -14,5 +13,6 @@
       <Label fx:id="cancellationStatusLabel" layoutX="336.0" layoutY="305.0" text="Cancellation Status" />
       <TextField fx:id="trackOrderIdInputTextField" layoutX="287.0" layoutY="104.0" />
       <Button layoutX="155.0" layoutY="301.0" mnemonicParsing="false" onAction="#cancelOrderButtonOnAction" text="Cancel Order" />
+      <Button layoutX="519.0" layoutY="346.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
    </children>
 </AnchorPane>
