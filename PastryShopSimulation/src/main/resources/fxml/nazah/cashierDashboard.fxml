@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team.nazah.cashier.cashierDashboardController">
    <children>
-      <Label fx:id="dashboardTestLabel" layoutX="224.0" layoutY="120.0" text="cashierDashboard" />
+      <Label fx:id="dashboardTestLabel" layoutX="38.0" layoutY="46.0" text="Cashier Dashboard" />
+      <Button layoutX="153.0" layoutY="343.0" mnemonicParsing="false" onAction="#viewSalesSummaryButtonOnAction" text="View Sales Summary" />
+      <Button layoutX="321.0" layoutY="343.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" text="Logout" />
+      <TableView fx:id="incomingOrdersTable" layoutX="53.0" layoutY="92.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="incomingOrdersColumn" prefWidth="117.5999755859375" text="Incoming Orders" />
+          <TableColumn fx:id="incomingOrdersOpenColumn" prefWidth="81.60003662109375" text="Open" />
+        </columns>
+      </TableView>
+      <TableView fx:id="cancellationReqsTable" layoutX="321.0" layoutY="92.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="cancellationReqsColumn" prefWidth="138.4000244140625" text="Cancellation Requests" />
+          <TableColumn fx:id="cancellationReqsOpenColumn" prefWidth="60.79998779296875" text="Open" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
