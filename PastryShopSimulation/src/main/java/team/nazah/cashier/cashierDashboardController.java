@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
-public class cashierDashboardController
+public class CashierDashboardController
 {
     @javafx.fxml.FXML
     private Label dashboardTestLabel;
