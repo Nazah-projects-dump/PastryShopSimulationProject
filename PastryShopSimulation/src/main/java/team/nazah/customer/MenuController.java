@@ -1,7 +1,13 @@
 package team.nazah.customer;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class MenuController
 {
@@ -39,10 +45,30 @@ public class MenuController
     }
 
     @javafx.fxml.FXML
-    public void viewCartFromMenuButtonOnAction(ActionEvent actionEvent) {
+    public void viewCartFromMenuButtonOnAction(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/Cart.fxml"));
+
+        Scene scene = new Scene(fxmlLoader.load());
+
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        stage.setScene(scene);
+
+        stage.show();
     }
 
     @javafx.fxml.FXML
-    public void backButtonOnAction(ActionEvent actionEvent) {
+    public void backButtonOnAction(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/CustomerDashboard.fxml"));
+
+        Scene scene = new Scene(fxmlLoader.load());
+
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        stage.setScene(scene);
+
+        stage.show();
     }
 }
