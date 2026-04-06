@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -12,28 +13,32 @@ import java.io.IOException;
 public class MenuController
 {
     @javafx.fxml.FXML
-    private TableColumn menuQuantityColumn;
+    private TableColumn<MenuItem,Integer> menuQuantityColumn;
     @javafx.fxml.FXML
     private TextField menuMinPriceFilterTextField;
     @javafx.fxml.FXML
-    private ComboBox menuCategoryComboBox;
+    private ComboBox<String> menuCategoryComboBox;
     @javafx.fxml.FXML
-    private TableView menuTableView;
+    private TableView<MenuItem> menuTableView;
     @javafx.fxml.FXML
-    private TableColumn menuPriceColumn;
+    private TableColumn<MenuItem,Double> menuPriceColumn;
     @javafx.fxml.FXML
     private CheckBox veganCheckBox;
     @javafx.fxml.FXML
-    private TableColumn menuItemColumn;
+    private TableColumn<MenuItem,String> menuItemColumn;
     @javafx.fxml.FXML
     private TextField menuMaxPriceFilterTextField;
     @javafx.fxml.FXML
-    private TableColumn menuAddToCartColumn;
+    private TableColumn<MenuItem,Void> menuAddToCartColumn;
     @javafx.fxml.FXML
     private Label filterStatusLabel;
 
     @javafx.fxml.FXML
     public void initialize() {
+        menuItemColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,String>("name"));
+        menuPriceColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,Double>("price"));
+        menuQuantityColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,Integer>("quantity"));
+
     }
 
     @javafx.fxml.FXML

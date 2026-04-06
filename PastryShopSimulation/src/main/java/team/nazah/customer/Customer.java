@@ -53,5 +53,8 @@ public class Customer extends User {
         return this.name.equals(name);
     }
 
+    public ArrayList<MenuItem> browseMenu(Menu menu) {
+        return menu.getMenuItems();
+    }
 
 }
