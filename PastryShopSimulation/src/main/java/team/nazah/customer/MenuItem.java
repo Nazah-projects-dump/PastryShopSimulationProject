@@ -12,13 +12,14 @@ public class MenuItem {
     public MenuItem() {
     }
 
-    public MenuItem(String itemId, String name, String category, double price, int availableStock, boolean isVegan) {
+    public MenuItem(String itemId, String name, String category, double price, int availableStock, boolean isVegan, int quantity) {
         this.itemId = itemId;
         this.name = name;
         this.category = category;
         this.price = price;
         this.availableStock = availableStock;
         this.isVegan = isVegan;
+        this.quantity = quantity;
     }
 
     public String getItemId() {
@@ -57,6 +58,10 @@ public class MenuItem {
         return availableStock;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
     public void setAvailableStock(int availableStock) {
         this.availableStock = availableStock;
     }
@@ -69,6 +74,10 @@ public class MenuItem {
         isVegan = vegan;
     }
 
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     @Override
     public String toString() {
         return "MenuItem{" +
@@ -78,8 +87,7 @@ public class MenuItem {
                 ", price=" + price +
                 ", availableStock=" + availableStock +
                 ", isVegan=" + isVegan +
+                ", quantity=" + quantity +
                 '}';
     }
-
-
 }

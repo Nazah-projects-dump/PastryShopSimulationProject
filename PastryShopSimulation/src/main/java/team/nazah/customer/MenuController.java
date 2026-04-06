@@ -32,12 +32,18 @@ public class MenuController
     private TableColumn<MenuItem,Void> menuAddToCartColumn;
     @javafx.fxml.FXML
     private Label filterStatusLabel;
+    @javafx.fxml.FXML
+    private TableColumn<MenuItem,String> menuCategoryColumn;
+    @javafx.fxml.FXML
+    private TableColumn<MenuItem,Boolean> menuVeganColumn;
 
     @javafx.fxml.FXML
     public void initialize() {
         menuItemColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,String>("name"));
         menuPriceColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,Double>("price"));
         menuQuantityColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,Integer>("quantity"));
+        menuCategoryColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,String>("category"));
+        menuVeganColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,Boolean>("isVegan"));
 
     }
 
