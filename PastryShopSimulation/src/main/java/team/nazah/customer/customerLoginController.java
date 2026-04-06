@@ -36,7 +36,23 @@ public class CustomerLoginController
     }
 
     @javafx.fxml.FXML
-    public void customerLoginButtonOnAction(ActionEvent actionEvent) {
+    public void customerLoginButtonOnAction(ActionEvent actionEvent) throws IOException {
 
+        Customer test = new Customer("368","Madara");
+
+        if (test.login(customerLoginName.getText(),null)){
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/CustomerDashboard.fxml"));
+
+            Scene scene = new Scene(fxmlLoader.load());
+
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+            stage.setScene(scene);
+
+            stage.show();
+        }else{
+            System.out.println("LOGIN FAILED");
+        }
     }
 }
