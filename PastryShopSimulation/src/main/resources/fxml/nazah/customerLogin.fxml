@@ -11,6 +11,5 @@
       <TextField fx:id="customerLoginName" layoutX="205.0" layoutY="159.0" />
       <Button layoutX="529.0" layoutY="346.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
       <Button layoutX="254.0" layoutY="215.0" mnemonicParsing="false" onAction="#customerLoginButtonOnAction" text="Login" />
-      <Label fx:id="errorLabel" layoutX="182.0" layoutY="279.0" prefHeight="75.0" prefWidth="211.0" />
    </children>
 </AnchorPane>
