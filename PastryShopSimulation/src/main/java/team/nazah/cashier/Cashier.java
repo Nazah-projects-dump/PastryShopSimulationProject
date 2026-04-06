@@ -21,7 +21,7 @@ public class Cashier extends User implements Employee {
     }
 
     @Override
-    public boolean login() {
+    public boolean login(String name, String password) {
         return false;
     }
 }

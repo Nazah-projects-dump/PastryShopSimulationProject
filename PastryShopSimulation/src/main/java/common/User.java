@@ -38,7 +38,7 @@ public abstract class User {
 
     public abstract void showDashboard();
 
-    public abstract boolean login();
+    public abstract boolean login(String name, String password);
 
     public void logout(){
         //add later
