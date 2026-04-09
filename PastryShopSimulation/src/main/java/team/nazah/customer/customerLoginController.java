@@ -52,7 +52,7 @@ public class CustomerLoginController
             stage.show();
         }else{
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-            errorAlert.setContentText("Wrong Login");
+            errorAlert.setContentText("Incorrect Login");
             errorAlert.show();
             return;
         }
