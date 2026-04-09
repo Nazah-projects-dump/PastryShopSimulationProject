@@ -1,9 +1,11 @@
 package team.nazah.customer;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Menu {
+public class Menu implements Serializable {
     private ArrayList<MenuItem> menuItems;
+    private static final long serialVersionUID = 1L;
 
     public Menu() {
     }
@@ -25,5 +27,13 @@ public class Menu {
         return "Menu{" +
                 "menuItems=" + menuItems +
                 '}';
+    }
+
+    public static void saveMenu(Menu menu) {
+
+    }
+    public static Menu loadMenu() {
+        Menu menu = null;
+        return menu;
     }
 }

@@ -1,6 +1,9 @@
 package team.nazah.customer;
 
-public class MenuItem {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class MenuItem implements Serializable {
     private String itemId;
     private String name;
     private String category;
@@ -8,6 +11,7 @@ public class MenuItem {
     private int availableStock;
     private boolean isVegan;
     private int quantity;
+    private static final long serialVersionUID = 1L;
 
     public MenuItem() {
     }
@@ -90,4 +94,16 @@ public class MenuItem {
                 ", quantity=" + quantity +
                 '}';
     }
+
+    public boolean isAvailable(int quantity) {
+        return availableStock >= quantity;
+    }
+
+    public void updateStock(int quantity) {
+        if (quantity <= availableStock) {
+            availableStock -= quantity;
+        }
+    }
+
+
 }
