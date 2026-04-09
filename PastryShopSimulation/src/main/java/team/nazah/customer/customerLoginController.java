@@ -10,6 +10,9 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+
+import static team.nazah.customer.Customer.loadCustomers;
 
 public class CustomerLoginController
 {
@@ -37,7 +40,31 @@ public class CustomerLoginController
     @javafx.fxml.FXML
     public void customerLoginButtonOnAction(ActionEvent actionEvent) throws IOException {
 
-        Customer customer = new Customer("213","John");
+        String inputName = customerLoginName.getText().trim();
+        ArrayList<Customer> customers = loadCustomers();
+        Customer foundCustomer = null;
+
+        for (Customer c : customers) {
+            if (c.getName() != null && c.getName().equalsIgnoreCase(inputName)) {
+                foundCustomer = c;
+                break;
+            }
+        }
+
+        if (foundCustomer != null) {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/CustomerDashboard.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+
+        } else {
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setContentText("Customer not found");
+            errorAlert.show();
+        }
+
+       /* Customer customer = new Customer("213","John");
 
         if (customer.login(customerLoginName.getText(),null)){
 
@@ -55,6 +82,6 @@ public class CustomerLoginController
             errorAlert.setContentText("Incorrect Login");
             errorAlert.show();
             return;
-        }
+        }*/
     }
 }

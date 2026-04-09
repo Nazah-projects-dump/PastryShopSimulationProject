@@ -1,8 +1,11 @@
 package common;
 
-public abstract class User {
+import java.io.Serializable;
+
+public abstract class User implements Serializable {
     protected String userId;
     protected String name;
+    private static final long serialVersionUID = 1L;
 
     public User() {
     }

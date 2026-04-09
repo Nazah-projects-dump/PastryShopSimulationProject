@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import team.nazah.customer.Customer;
 
 public class Main extends Application {
     @Override
@@ -13,6 +14,8 @@ public class Main extends Application {
         stage.setTitle("Pastry Shop Simulation");
         stage.setScene(scene);
         stage.show();
+
+       //Customer.createDummyCustomers();
     }
 }
 
