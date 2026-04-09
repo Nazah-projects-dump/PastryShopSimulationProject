@@ -45,7 +45,7 @@ public class CustomerLoginController
         Customer foundCustomer = null;
 
         for (Customer c : customers) {
-            if (c.getName() != null && c.getName().equalsIgnoreCase(inputName)) {
+            if (c.getName().equalsIgnoreCase(inputName)) {
                 foundCustomer = c;
                 break;
             }
@@ -63,25 +63,5 @@ public class CustomerLoginController
             errorAlert.setContentText("Customer not found");
             errorAlert.show();
         }
-
-       /* Customer customer = new Customer("213","John");
-
-        if (customer.login(customerLoginName.getText(),null)){
-
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/CustomerDashboard.fxml"));
-
-            Scene scene = new Scene(fxmlLoader.load());
-
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-
-            stage.setScene(scene);
-
-            stage.show();
-        }else{
-            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-            errorAlert.setContentText("Incorrect Login");
-            errorAlert.show();
-            return;
-        }*/
     }
 }
