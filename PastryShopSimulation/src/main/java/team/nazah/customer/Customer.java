@@ -2,9 +2,10 @@ package team.nazah.customer;
 
 import common.User;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Customer extends User {
+public class Customer extends User implements Serializable {
     private Cart cart;
     private ArrayList<Order> orders;
 
