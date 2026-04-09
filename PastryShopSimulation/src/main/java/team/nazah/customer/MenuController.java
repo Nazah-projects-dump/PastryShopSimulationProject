@@ -13,8 +13,6 @@ import java.io.IOException;
 public class MenuController
 {
     @javafx.fxml.FXML
-    private TableColumn<MenuItem,Integer> menuQuantityColumn;
-    @javafx.fxml.FXML
     private TextField menuMinPriceFilterTextField;
     @javafx.fxml.FXML
     private ComboBox<String> menuCategoryComboBox;
@@ -41,10 +39,30 @@ public class MenuController
     public void initialize() {
         menuItemColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,String>("name"));
         menuPriceColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,Double>("price"));
-        menuQuantityColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,Integer>("quantity"));
         menuCategoryColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,String>("category"));
         menuVeganColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,Boolean>("isVegan"));
+        menuAddToCartColumn.setCellFactory(col -> new TableCell<>() {
 
+            private final Button button = new Button("Add");
+
+            {
+                button.setOnAction(event -> {
+                    MenuItem item = getTableView().getItems().get(getIndex());
+                    // Popup logic
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(button);
+                }
+            }
+        });
     }
 
     @javafx.fxml.FXML
