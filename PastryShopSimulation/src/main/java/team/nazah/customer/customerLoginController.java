@@ -4,9 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 
 public class CustomerLoginController
@@ -35,9 +37,9 @@ public class CustomerLoginController
     @javafx.fxml.FXML
     public void customerLoginButtonOnAction(ActionEvent actionEvent) throws IOException {
 
-        Customer test = new Customer("368","Madara");
+        Customer customer = new Customer("213","John");
 
-        if (test.login(customerLoginName.getText(),null)){
+        if (customer.login(customerLoginName.getText(),null)){
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/CustomerDashboard.fxml"));
 
@@ -48,6 +50,11 @@ public class CustomerLoginController
             stage.setScene(scene);
 
             stage.show();
+        }else{
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setContentText("Wrong Login");
+            errorAlert.show();
+            return;
         }
     }
 }

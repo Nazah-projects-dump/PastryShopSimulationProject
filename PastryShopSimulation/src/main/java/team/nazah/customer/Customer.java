@@ -1,8 +1,7 @@
 package team.nazah.customer;
 
 import common.User;
-
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 
 public class Customer extends User implements Serializable {

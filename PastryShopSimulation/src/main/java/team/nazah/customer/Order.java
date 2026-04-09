@@ -1,4 +1,6 @@
 package team.nazah.customer;
 
-public class Order {
+import java.io.Serializable;
+
+public class Order implements Serializable {
 }

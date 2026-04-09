@@ -1,4 +1,6 @@
 package team.nazah.customer;
 
-public class Cart {
+import java.io.Serializable;
+
+public class Cart implements Serializable {
 }
