@@ -14,7 +14,7 @@ import java.util.Optional;
 
 public class MenuController
 {
-    private Cart cart = Cart.loadCart();;
+    private Cart cart = Cart.loadCart();
     @javafx.fxml.FXML
     private TextField menuMinPriceFilterTextField;
     @javafx.fxml.FXML

@@ -11,10 +11,10 @@
       <Label alignment="CENTER" layoutX="196.0" layoutY="52.0" prefHeight="42.0" prefWidth="178.0" style="-fx-background-color: pink;" text="Feedback" />
       <Label layoutX="103.0" layoutY="140.0" text="Leave a comment : " />
       <Label layoutX="346.0" layoutY="140.0" text="Give us your rating :" />
-      <Label fx:id="feedbackStatusLabel" layoutX="331.0" layoutY="313.0" text="Feedback Status" />
+      <Label fx:id="feedbackStatusLabel" alignment="CENTER" layoutX="154.0" layoutY="307.0" prefHeight="56.0" prefWidth="150.0" style="-fx-border-color: pink;" />
       <TextField fx:id="commentTextField" layoutX="79.0" layoutY="173.0" prefHeight="85.0" prefWidth="150.0" />
-      <Button layoutX="154.0" layoutY="309.0" mnemonicParsing="false" onAction="#submitFeedbackButtonOnAction" text="Submit" />
-      <ComboBox fx:id="ratingComboBox" layoutX="324.0" layoutY="188.0" prefWidth="150.0" />
+      <Button layoutX="324.0" layoutY="307.0" mnemonicParsing="false" onAction="#submitFeedbackButtonOnAction" prefHeight="56.0" prefWidth="130.0" text="Submit" />
+      <ComboBox fx:id="ratingComboBox" layoutX="324.0" layoutY="174.0" prefWidth="150.0" />
       <Button layoutX="508.0" layoutY="350.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
    </children>
 </AnchorPane>
