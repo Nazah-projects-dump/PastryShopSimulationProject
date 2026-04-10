@@ -10,9 +10,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class MenuController
 {
+    private Cart cart = Cart.loadCart();;
     @javafx.fxml.FXML
     private TextField menuMinPriceFilterTextField;
     @javafx.fxml.FXML
@@ -47,6 +49,7 @@ public class MenuController
         if (menu != null) {
             menuTableView.getItems().addAll(menu.getMenuItems());
         }
+
     }
 
     @javafx.fxml.FXML
@@ -131,6 +134,42 @@ public class MenuController
 
     @javafx.fxml.FXML
     public void addToCartButtonOnAction(ActionEvent actionEvent) {
+        MenuItem selectedItem = menuTableView.getSelectionModel().getSelectedItem();
 
+        if (selectedItem == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("No item selected");
+            alert.show();
+            return;
+        }
+
+        TextInputDialog quantityDialog = new TextInputDialog();
+        quantityDialog.setTitle("Quantity");
+        quantityDialog.setHeaderText("Enter quantity:");
+
+        Optional<String> result = quantityDialog.showAndWait();
+
+        if (result.isPresent()) {
+            try {
+                int quantity = Integer.parseInt(result.get());
+
+                if (quantity <= 0) {
+                    Alert error = new Alert(Alert.AlertType.ERROR);
+                    error.setContentText("Quantity must be greater than 0");
+                    error.show();
+                    return;
+                }
+
+                cart.addItem(selectedItem, quantity);
+                Cart.saveCart(cart);
+
+                filterStatusLabel.setText("Item added to cart!");
+
+            } catch (NumberFormatException e) {
+                Alert error = new Alert(Alert.AlertType.ERROR);
+                error.setContentText("Invalid quantity");
+                error.show();
+            }
+        }
     }
 }

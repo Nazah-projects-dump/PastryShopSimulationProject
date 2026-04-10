@@ -34,24 +34,13 @@ public class CartController
         cartItemSubtotalColumn.setCellValueFactory(data -> new SimpleDoubleProperty(data.getValue().getSubTotal()).asObject());
         cartItemColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getItem().getName()));
         cartPriceColumn.setCellValueFactory(data -> new SimpleDoubleProperty(data.getValue().getItem().getPrice()).asObject());
+
+        cartTableView.getItems().addAll(cart.getItems());
+        cartTotalLabel.setText(String.valueOf(cart.getTotal()));
     }
 
     @javafx.fxml.FXML
     public void placeOrderButtonOnAction(ActionEvent actionEvent) {
-    }
-
-    @javafx.fxml.FXML
-    public void backButtonOnAction(ActionEvent actionEvent) throws IOException {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/CustomerDashboard.fxml"));
-
-        Scene scene = new Scene(fxmlLoader.load());
-
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-
-        stage.setScene(scene);
-
-        stage.show();
     }
 
     @javafx.fxml.FXML
@@ -68,5 +57,33 @@ public class CartController
         }
         cart.calculateTotal();
         cartTotalLabel.setText(String.valueOf(cart.getTotal()));
+    }
+
+    @javafx.fxml.FXML
+    public void backToMenuButtonOnAction(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/Menu.fxml"));
+
+        Scene scene = new Scene(fxmlLoader.load());
+
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        stage.setScene(scene);
+
+        stage.show();
+    }
+
+    @javafx.fxml.FXML
+    public void backToDashboardButtonOnAction(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/CustomerDashboard.fxml"));
+
+        Scene scene = new Scene(fxmlLoader.load());
+
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        stage.setScene(scene);
+
+        stage.show();
     }
 }

@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class CartItem implements Serializable {
     private MenuItem item;
     private int quantity;
+    private static final long serialVersionUID = 1L;
 
     public CartItem() {
     }

@@ -101,7 +101,7 @@ public class Customer extends User implements Serializable {
         return list;
     }
 
-    /*public static void createDummyCustomers() {
+    /*public static void createCustomers() {
         saveCustomer(new Customer("1", "John"));
         saveCustomer(new Customer("2", "Alice"));
         saveCustomer(new Customer("3", "Bob"));

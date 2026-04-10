@@ -16,7 +16,7 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
 
-       //Customer.createDummyCustomers();
+        //Customer.createCustomers();
         // Menu.createMenu();
     }
 }

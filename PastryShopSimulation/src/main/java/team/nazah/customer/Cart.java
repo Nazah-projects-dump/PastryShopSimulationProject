@@ -1,5 +1,7 @@
 package team.nazah.customer;
 
+import javafx.scene.control.Alert;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -7,9 +9,11 @@ public class Cart implements Serializable {
     private String cartId;
     private ArrayList<CartItem> items;
     private double total;
+    private static final long serialVersionUID = 1L;
 
     public Cart() {
-
+        items = new ArrayList<>();
+        total = 0.0;
     }
 
     public Cart(String cartId, ArrayList<CartItem> items, double total) {
@@ -65,9 +69,25 @@ public class Cart implements Serializable {
 
     public void addItem(MenuItem menuItem, int quantity) {
 
+        if (quantity > menuItem.getAvailableStock()) {
+            Alert error = new Alert(Alert.AlertType.ERROR);
+            error.setContentText("Not enough stock.");
+            error.show();
+            return;
+        }
+
         for (CartItem ci : items) {
             if (ci.getItem().getItemId().equals(menuItem.getItemId())) {
-                ci.setQuantity(ci.getQuantity() + quantity);
+                int newQuantity = ci.getQuantity() + quantity;
+
+                if (newQuantity > menuItem.getAvailableStock()) {
+                    Alert error = new Alert(Alert.AlertType.ERROR);
+                    error.setContentText("Not enough stock.");
+                    error.show();
+                    return;
+                }
+
+                ci.setQuantity(newQuantity);
                 calculateTotal();
                 saveCart(this);
                 return;
@@ -109,7 +129,7 @@ public class Cart implements Serializable {
             ois.close();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            cart = new Cart();
         }
 
         return cart;
