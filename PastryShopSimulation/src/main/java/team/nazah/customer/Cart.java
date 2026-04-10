@@ -77,17 +77,8 @@ public class Cart implements Serializable {
         calculateTotal();
     }
 
-    public void removeItem(MenuItem menuItem) {
-
-        for (int i = 0; i < items.size(); i++) {
-            CartItem ci = items.get(i);
-
-            if (ci.getItem().getItemId().equals(menuItem.getItemId())) {
-                items.remove(i);
-                break;
-            }
-        }
-
+    public void removeItem(CartItem item) {
+        items.remove(item);
         calculateTotal();
     }
 }

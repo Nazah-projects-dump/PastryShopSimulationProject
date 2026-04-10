@@ -1,35 +1,39 @@
 package team.nazah.customer;
 
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class CartController
 {
+    private Cart cart = new Cart();
     @javafx.fxml.FXML
-    private TableColumn cartQuantityColumn;
+    private TableColumn<CartItem, Integer> cartQuantityColumn;
     @javafx.fxml.FXML
-    private TableView cartTableView;
+    private TableView<CartItem> cartTableView;
     @javafx.fxml.FXML
-    private TableColumn cartItemColumn;
+    private TableColumn<CartItem,String> cartItemColumn;
     @javafx.fxml.FXML
-    private TableColumn cartItemSubtotalColumn;
+    private TableColumn<CartItem,Double> cartItemSubtotalColumn;
     @javafx.fxml.FXML
-    private TableColumn cartPriceColumn;
+    private TableColumn<CartItem,Double> cartPriceColumn;
     @javafx.fxml.FXML
     private Label cartTotalLabel;
-    @javafx.fxml.FXML
-    private TableColumn cartRemoveColumn;
 
     @javafx.fxml.FXML
     public void initialize() {
+        cartQuantityColumn.setCellValueFactory(new PropertyValueFactory<CartItem,Integer>("quantity"));
+        cartItemSubtotalColumn.setCellValueFactory(data -> new SimpleDoubleProperty(data.getValue().getSubTotal()).asObject());
+        cartItemColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getItem().getName()));
+        cartPriceColumn.setCellValueFactory(data -> new SimpleDoubleProperty(data.getValue().getItem().getPrice()).asObject());
     }
 
     @javafx.fxml.FXML
@@ -48,5 +52,19 @@ public class CartController
         stage.setScene(scene);
 
         stage.show();
+    }
+
+    @javafx.fxml.FXML
+    public void removeItemButtonOnAction(ActionEvent actionEvent) {
+        CartItem selectedItem = cartTableView.getSelectionModel().getSelectedItem();
+
+        if (selectedItem != null) {
+            cart.removeItem(selectedItem);
+            cartTableView.getItems().remove(selectedItem);
+        } else {
+            System.out.println("No item selected");
+        }
+        cart.calculateTotal();
+        cartTotalLabel.setText(String.valueOf(cart.getTotal()));
     }
 }

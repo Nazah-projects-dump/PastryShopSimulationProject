@@ -8,17 +8,18 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team.nazah.customer.CartController">
    <children>
-      <TableView fx:id="cartTableView" layoutX="46.0" layoutY="74.0" prefHeight="200.0" prefWidth="512.0">
+      <TableView fx:id="cartTableView" layoutX="46.0" layoutY="74.0" prefHeight="200.0" prefWidth="410.0">
         <columns>
           <TableColumn fx:id="cartItemColumn" prefWidth="75.0" text="Item" />
           <TableColumn fx:id="cartPriceColumn" prefWidth="75.0" text="Price" />
             <TableColumn fx:id="cartQuantityColumn" prefWidth="104.79998779296875" text="Quantity" />
             <TableColumn fx:id="cartItemSubtotalColumn" prefWidth="152.79998779296875" text="Item Subtotal" />
-            <TableColumn fx:id="cartRemoveColumn" prefWidth="103.20001220703125" text="Remove" />
         </columns>
       </TableView>
-      <Button layoutX="364.0" layoutY="319.0" mnemonicParsing="false" onAction="#placeOrderButtonOnAction" text="Place Order" />
-      <Label fx:id="cartTotalLabel" alignment="CENTER" layoutX="89.0" layoutY="303.0" prefHeight="58.0" prefWidth="190.0" style="-fx-background-color: pink;" text="Total : " />
-      <Button layoutX="517.0" layoutY="361.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
+      <Button layoutX="251.0" layoutY="290.0" mnemonicParsing="false" onAction="#placeOrderButtonOnAction" prefHeight="58.0" prefWidth="206.0" text="Place Order" />
+      <Label fx:id="cartTotalLabel" alignment="CENTER" layoutX="46.0" layoutY="290.0" prefHeight="58.0" prefWidth="190.0" style="-fx-background-color: pink;" text="Total : " />
+      <Button layoutX="518.0" layoutY="322.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
+      <Label alignment="CENTER" layoutX="47.0" layoutY="25.0" prefHeight="32.0" prefWidth="508.0" style="-fx-background-color: pink;" text="Cart" />
+      <Button layoutX="465.0" layoutY="74.0" mnemonicParsing="false" onAction="#removeItemButtonOnAction" prefHeight="200.0" prefWidth="94.0" text="Remove Item" />
    </children>
 </AnchorPane>
