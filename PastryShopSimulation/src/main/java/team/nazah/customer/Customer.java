@@ -47,7 +47,7 @@ public class Customer extends User implements Serializable {
 
     @Override
     public void showDashboard() {
-
+        //
     }
 
     @Override
@@ -57,6 +57,26 @@ public class Customer extends User implements Serializable {
 
     public ArrayList<MenuItem> browseMenu(Menu menu) {
         return menu.getMenuItems();
+    }
+
+    public ArrayList<MenuItem> filterMenu(Menu menu, Double min, Double max, Boolean vegan) {
+        return menu.applyFilters(min, max, vegan);
+    }
+
+    public boolean addToCart(Cart cart, MenuItem item, int quantity) {
+        return cart.addItem(item, quantity);
+    }
+
+    public void viewCart() {
+        //
+    }
+
+    public void updateCart() {
+        //
+    }
+
+    public void giveFeedback(Feedback feedback) {
+        //
     }
 
     public static void saveCustomer(Customer customer) {
