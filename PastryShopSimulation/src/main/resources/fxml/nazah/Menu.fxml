@@ -19,19 +19,19 @@
       <TextField fx:id="menuMaxPriceFilterTextField" layoutX="92.0" layoutY="485.0" />
       <Label layoutX="30.0" layoutY="422.0" text="Category :" />
       <ComboBox fx:id="menuCategoryComboBox" layoutX="92.0" layoutY="418.0" prefWidth="150.0" />
-      <TableView fx:id="menuTableView" layoutX="14.0" layoutY="80.0" prefHeight="272.0" prefWidth="556.0">
+      <TableView fx:id="menuTableView" layoutX="14.0" layoutY="80.0" prefHeight="272.0" prefWidth="467.0">
         <columns>
           <TableColumn fx:id="menuItemColumn" prefWidth="156.80001544952393" text="Item" />
           <TableColumn fx:id="menuPriceColumn" prefWidth="89.59999084472656" text="Price" />
             <TableColumn fx:id="menuCategoryColumn" prefWidth="118.39996337890625" text="Category" />
             <TableColumn fx:id="menuVeganColumn" prefWidth="99.20001220703125" text="Vegan" />
-            <TableColumn fx:id="menuAddToCartColumn" prefWidth="89.5999755859375" text="Add to Cart" />
         </columns>
       </TableView>
       <Button layoutX="262.0" layoutY="417.0" mnemonicParsing="false" onAction="#applyFiltersButtonOnAction" prefHeight="126.0" prefWidth="114.0" text="Apply Filters" />
       <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#resetFiltersButtonOnAction" prefHeight="26.0" prefWidth="556.0" text="Reset Filters" />
       <Label fx:id="filterStatusLabel" alignment="CENTER" layoutX="399.0" layoutY="420.0" prefHeight="126.0" prefWidth="138.0" style="-fx-border-color: pink;" />
-      <Button layoutX="445.0" layoutY="28.0" mnemonicParsing="false" onAction="#viewCartFromMenuButtonOnAction" text="View Cart" />
+      <Button layoutX="489.0" layoutY="215.0" mnemonicParsing="false" onAction="#viewCartFromMenuButtonOnAction" prefHeight="134.0" prefWidth="82.0" text="View Cart" />
       <Button layoutX="529.0" layoutY="28.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
+      <Button layoutX="489.0" layoutY="81.0" mnemonicParsing="false" onAction="#addToCartButtonOnAction" prefHeight="126.0" prefWidth="82.0" text="Add to Cart" />
    </children>
 </AnchorPane>

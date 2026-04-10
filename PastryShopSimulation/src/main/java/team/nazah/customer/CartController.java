@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class CartController
 {
-    private Cart cart = new Cart();
+    private Cart cart = Cart.loadCart();
     @javafx.fxml.FXML
     private TableColumn<CartItem, Integer> cartQuantityColumn;
     @javafx.fxml.FXML
@@ -62,7 +62,9 @@ public class CartController
             cart.removeItem(selectedItem);
             cartTableView.getItems().remove(selectedItem);
         } else {
-            System.out.println("No item selected");
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setContentText("No item has been selected.");
+            errorAlert.show();
         }
         cart.calculateTotal();
         cartTotalLabel.setText(String.valueOf(cart.getTotal()));

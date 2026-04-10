@@ -28,8 +28,6 @@ public class MenuController
     @javafx.fxml.FXML
     private TextField menuMaxPriceFilterTextField;
     @javafx.fxml.FXML
-    private TableColumn<MenuItem,Void> menuAddToCartColumn;
-    @javafx.fxml.FXML
     private Label filterStatusLabel;
     @javafx.fxml.FXML
     private TableColumn<MenuItem,String> menuCategoryColumn;
@@ -43,28 +41,6 @@ public class MenuController
         menuPriceColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,Double>("price"));
         menuCategoryColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,String>("category"));
         menuVeganColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,Boolean>("Vegan"));
-        menuAddToCartColumn.setCellFactory(col -> new TableCell<>() {
-
-            private final Button button = new Button("Add");
-
-            {
-                button.setOnAction(event -> {
-                    MenuItem item = getTableView().getItems().get(getIndex());
-                    // Popup logic
-                });
-            }
-
-            @Override
-            protected void updateItem(Void item, boolean empty) {
-                super.updateItem(item, empty);
-
-                if (empty) {
-                    setGraphic(null);
-                } else {
-                    setGraphic(button);
-                }
-            }
-        });
 
         Menu menu = Menu.loadMenu();
 
@@ -151,5 +127,10 @@ public class MenuController
         stage.setScene(scene);
 
         stage.show();
+    }
+
+    @javafx.fxml.FXML
+    public void addToCartButtonOnAction(ActionEvent actionEvent) {
+
     }
 }

@@ -1,6 +1,6 @@
 package team.nazah.customer;
 
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 
 public class Cart implements Serializable {
@@ -69,16 +69,49 @@ public class Cart implements Serializable {
             if (ci.getItem().getItemId().equals(menuItem.getItemId())) {
                 ci.setQuantity(ci.getQuantity() + quantity);
                 calculateTotal();
+                saveCart(this);
                 return;
             }
         }
 
         items.add(new CartItem(menuItem, quantity));
         calculateTotal();
+        saveCart(this);
     }
 
     public void removeItem(CartItem item) {
         items.remove(item);
         calculateTotal();
+        saveCart(this);
+    }
+
+    public static void saveCart(Cart cart) {
+        try {
+            FileOutputStream fos = new FileOutputStream("Cart.bin");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+            oos.writeObject(cart);
+            oos.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Cart loadCart() {
+        Cart cart = null;
+
+        try {
+            FileInputStream fis = new FileInputStream("Cart.bin");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+
+            cart = (Cart) ois.readObject();
+            ois.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return cart;
     }
 }
