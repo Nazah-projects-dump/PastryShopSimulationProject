@@ -40,11 +40,35 @@ public class Menu implements Serializable {
     public ArrayList<MenuItem> getItemsByCategory(String category) {
         ArrayList<MenuItem> categorized = new ArrayList<>();
         for (MenuItem item : menuItems) {
-            if (item.getCategory().equals(category)) {
+            if (item.getCategory().equalsIgnoreCase(category)) {
                 categorized.add(item);
             }
         }
         return categorized;
+    }
+
+    public ArrayList<MenuItem> applyFilters(ArrayList<MenuItem> list, Double minPrice, Double maxPrice, Boolean veganOnly) {
+        ArrayList<MenuItem> filtered = new ArrayList<>();
+
+        for (MenuItem item : list) {
+            boolean passes = true;
+
+            if (minPrice != null && item.getPrice() < minPrice) {
+                passes = false;
+            }
+            if (maxPrice != null && item.getPrice() > maxPrice) {
+                passes = false;
+            }
+            if (veganOnly != null && veganOnly && !item.isVegan()) {
+                passes = false;
+            }
+
+            if (passes) {
+                filtered.add(item);
+            }
+        }
+
+        return filtered;
     }
 
     public ArrayList<MenuItem> applyFilters(Double minPrice, Double maxPrice, Boolean veganOnly) {

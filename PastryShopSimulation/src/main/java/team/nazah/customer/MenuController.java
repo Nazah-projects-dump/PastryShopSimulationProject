@@ -9,6 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MenuController
 {
@@ -37,6 +38,7 @@ public class MenuController
 
     @javafx.fxml.FXML
     public void initialize() {
+        menuCategoryComboBox.getItems().addAll("Cakes", "Cupcakes" ,"Cookies","Drinks");
         menuItemColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,String>("name"));
         menuPriceColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,Double>("price"));
         menuCategoryColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,String>("category"));
@@ -68,15 +70,59 @@ public class MenuController
 
         if (menu != null) {
             menuTableView.getItems().addAll(menu.getMenuItems());
-        } 
+        }
     }
 
     @javafx.fxml.FXML
     public void applyFiltersButtonOnAction(ActionEvent actionEvent) {
+        Menu menu = Menu.loadMenu();
+
+        Double minPrice = null;
+        Double maxPrice = null;
+        Boolean veganOnly = null;
+        String category = null;
+
+        try {
+            if (!menuMinPriceFilterTextField.getText().isEmpty()) {
+                minPrice = Double.parseDouble(menuMinPriceFilterTextField.getText());
+            }
+
+            if (!menuMaxPriceFilterTextField.getText().isEmpty()) {
+                maxPrice = Double.parseDouble(menuMaxPriceFilterTextField.getText());
+            }
+        } catch (NumberFormatException e) {
+            filterStatusLabel.setText("Invalid price input");
+            return;
+        }
+
+        if (veganCheckBox.isSelected()) {
+            veganOnly = true;
+        }
+
+        if (menuCategoryComboBox.getValue() != null) {
+            category = menuCategoryComboBox.getValue();
+        }
+
+        ArrayList<MenuItem> filteredList;
+
+        if (category != null && !category.isEmpty()) {
+            ArrayList<MenuItem> categoryList = menu.getItemsByCategory(category);
+            filteredList = menu.applyFilters(categoryList, minPrice, maxPrice, veganOnly);
+        } else {
+            filteredList = menu.applyFilters(minPrice, maxPrice, veganOnly);
+        }
+
+        menuTableView.getItems().clear();
+        menuTableView.getItems().addAll(filteredList);
+
+        filterStatusLabel.setText("Filters applied");
     }
 
     @javafx.fxml.FXML
     public void resetFiltersButtonOnAction(ActionEvent actionEvent) {
+        Menu menu = Menu.loadMenu();
+        menuTableView.getItems().clear();
+        menuTableView.getItems().addAll(menu.getMenuItems());
     }
 
     @javafx.fxml.FXML
