@@ -10,10 +10,10 @@
    <children>
       <TableView fx:id="cartTableView" layoutX="46.0" layoutY="74.0" prefHeight="200.0" prefWidth="410.0">
         <columns>
-          <TableColumn fx:id="cartItemColumn" prefWidth="75.0" text="Item" />
-          <TableColumn fx:id="cartPriceColumn" prefWidth="75.0" text="Price" />
-            <TableColumn fx:id="cartQuantityColumn" prefWidth="104.79998779296875" text="Quantity" />
-            <TableColumn fx:id="cartItemSubtotalColumn" prefWidth="152.79998779296875" text="Item Subtotal" />
+          <TableColumn fx:id="cartItemColumn" prefWidth="157.60003662109375" text="Item" />
+          <TableColumn fx:id="cartPriceColumn" prefWidth="75.199951171875" text="Price" />
+            <TableColumn fx:id="cartQuantityColumn" prefWidth="78.4000244140625" text="Quantity" />
+            <TableColumn fx:id="cartItemSubtotalColumn" prefWidth="96.79998779296875" text="Item Subtotal" />
         </columns>
       </TableView>
       <Button layoutX="251.0" layoutY="290.0" mnemonicParsing="false" onAction="#placeOrderButtonOnAction" prefHeight="58.0" prefWidth="306.0" text="Place Order" />

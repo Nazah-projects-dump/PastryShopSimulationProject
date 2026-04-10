@@ -160,7 +160,13 @@ public class MenuController
                     return;
                 }
 
-                cart.addItem(selectedItem, quantity);
+                boolean success = cart.addItem(selectedItem, quantity);
+
+                if (!success) {
+                    Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                    errorAlert.setContentText("Not enough stock available.");
+                    errorAlert.show();
+                }
                 Cart.saveCart(cart);
 
                 filterStatusLabel.setText("Item added to cart!");

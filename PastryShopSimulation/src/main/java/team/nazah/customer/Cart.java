@@ -67,13 +67,10 @@ public class Cart implements Serializable {
         total = 0;
     }
 
-    public void addItem(MenuItem menuItem, int quantity) {
+    public boolean addItem(MenuItem menuItem, int quantity) {
 
         if (quantity > menuItem.getAvailableStock()) {
-            Alert error = new Alert(Alert.AlertType.ERROR);
-            error.setContentText("Not enough stock.");
-            error.show();
-            return;
+            return false;
         }
 
         for (CartItem ci : items) {
@@ -81,22 +78,20 @@ public class Cart implements Serializable {
                 int newQuantity = ci.getQuantity() + quantity;
 
                 if (newQuantity > menuItem.getAvailableStock()) {
-                    Alert error = new Alert(Alert.AlertType.ERROR);
-                    error.setContentText("Not enough stock.");
-                    error.show();
-                    return;
+                    return false;
                 }
 
                 ci.setQuantity(newQuantity);
                 calculateTotal();
                 saveCart(this);
-                return;
+                return true;
             }
         }
 
         items.add(new CartItem(menuItem, quantity));
         calculateTotal();
         saveCart(this);
+        return true;
     }
 
     public void removeItem(CartItem item) {
