@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import team.nazah.customer.Customer;
+import team.nazah.customer.Menu;
 
 public class Main extends Application {
     @Override
@@ -16,6 +17,7 @@ public class Main extends Application {
         stage.show();
 
        //Customer.createDummyCustomers();
+        // Menu.createMenu();
     }
 }
 

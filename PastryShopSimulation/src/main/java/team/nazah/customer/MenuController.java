@@ -40,7 +40,7 @@ public class MenuController
         menuItemColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,String>("name"));
         menuPriceColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,Double>("price"));
         menuCategoryColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,String>("category"));
-        menuVeganColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,Boolean>("isVegan"));
+        menuVeganColumn.setCellValueFactory(new PropertyValueFactory<MenuItem,Boolean>("Vegan"));
         menuAddToCartColumn.setCellFactory(col -> new TableCell<>() {
 
             private final Button button = new Button("Add");
@@ -63,6 +63,12 @@ public class MenuController
                 }
             }
         });
+
+        Menu menu = Menu.loadMenu();
+
+        if (menu != null) {
+            menuTableView.getItems().addAll(menu.getMenuItems());
+        } 
     }
 
     @javafx.fxml.FXML

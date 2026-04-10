@@ -1,7 +1,6 @@
 package team.nazah.customer;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class MenuItem implements Serializable {
     private String itemId;
