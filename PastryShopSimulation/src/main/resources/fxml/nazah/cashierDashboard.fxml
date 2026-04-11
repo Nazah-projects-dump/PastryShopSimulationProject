@@ -8,29 +8,29 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team.nazah.cashier.CashierDashboardController">
+<AnchorPane prefHeight="439.0" prefWidth="618.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team.nazah.cashier.CashierDashboardController">
    <children>
-      <Label fx:id="dashboardTestLabel" layoutX="265.0" layoutY="23.0" text="Cashier Dashboard" />
-      <Button layoutX="403.0" layoutY="286.0" mnemonicParsing="false" onAction="#viewSalesSummaryButtonOnAction" text="View Sales Summary" />
-      <Button layoutX="438.0" layoutY="331.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" text="Logout" />
-      <TableView fx:id="incomingOrdersTable" layoutX="53.0" layoutY="55.0" prefHeight="200.0" prefWidth="287.0">
+      <Label fx:id="dashboardTestLabel" alignment="CENTER" layoutX="241.0" layoutY="14.0" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: pink;" text="Cashier Dashboard" />
+      <Button layoutX="403.0" layoutY="321.0" mnemonicParsing="false" onAction="#viewSalesSummaryButtonOnAction" text="View Sales Summary" />
+      <Button layoutX="438.0" layoutY="367.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" text="Logout" />
+      <TableView fx:id="incomingOrdersTable" layoutX="53.0" layoutY="66.0" prefHeight="200.0" prefWidth="200.0">
         <columns>
           <TableColumn fx:id="incomingOrdersColumn" prefWidth="117.5999755859375" text="Incoming Orders" />
           <TableColumn fx:id="incomingOrdersStatusColumn" prefWidth="81.60003662109375" text="Status" />
-            <TableColumn fx:id="incomingOrdersOpenColumn1" prefWidth="86.40001220703124" text="Open" />
         </columns>
       </TableView>
-      <TableView fx:id="cancellationReqsTable" layoutX="365.0" layoutY="55.0" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="cancellationReqsTable" layoutX="365.0" layoutY="66.0" prefHeight="200.0" prefWidth="143.0">
         <columns>
-          <TableColumn fx:id="cancellationReqsColumn" prefWidth="138.4000244140625" text="Cancellation Requests" />
-          <TableColumn fx:id="cancellationReqsOpenColumn" prefWidth="60.79998779296875" text="Open" />
+          <TableColumn fx:id="cancellationReqsColumn" prefWidth="142.40001220703124" text="Cancellation Requests" />
         </columns>
       </TableView>
-      <Label layoutX="53.0" layoutY="299.0" text="Filter by Order ID :" />
-      <Label layoutX="53.0" layoutY="335.0" text="Filter by Order Status :" />
-      <TextField fx:id="orderIdFilterTextField" layoutX="180.0" layoutY="295.0" />
-      <ComboBox fx:id="orderStatusFilterComboBox" layoutX="180.0" layoutY="331.0" prefWidth="150.0" />
-      <Button layoutX="53.0" layoutY="265.0" mnemonicParsing="false" onAction="#resetFiltersButtonOnAction" prefHeight="18.0" prefWidth="287.0" text="Reset filters" />
-      <Button layoutX="50.0" layoutY="366.0" mnemonicParsing="false" onAction="#ApplyFiltersButtonOnAction" prefHeight="26.0" prefWidth="279.0" text="Apply filters" />
+      <Label layoutX="73.0" layoutY="316.0" text="Filter by Order ID :" />
+      <Label layoutX="53.0" layoutY="348.0" text="Filter by Order Status :" />
+      <TextField fx:id="orderIdFilterTextField" layoutX="179.0" layoutY="312.0" />
+      <ComboBox fx:id="orderStatusFilterComboBox" layoutX="179.0" layoutY="344.0" prefWidth="150.0" />
+      <Button layoutX="53.0" layoutY="273.0" mnemonicParsing="false" onAction="#resetFiltersButtonOnAction" prefHeight="18.0" prefWidth="287.0" text="Reset filters" />
+      <Button layoutX="53.0" layoutY="380.0" mnemonicParsing="false" onAction="#ApplyFiltersButtonOnAction" prefHeight="26.0" prefWidth="279.0" text="Apply filters" />
+      <Button alignment="CENTER" contentDisplay="BOTTOM" layoutX="264.0" layoutY="66.0" mnemonicParsing="false" onAction="#openIncomingOrderButtonOnAction" prefHeight="200.0" prefWidth="70.0" text="Open" />
+      <Button alignment="CENTER" contentDisplay="BOTTOM" layoutX="515.0" layoutY="66.0" mnemonicParsing="false" onAction="#openCancellationReqButtonOnAction" prefHeight="200.0" prefWidth="70.0" text="Open" />
    </children>
 </AnchorPane>

@@ -97,6 +97,8 @@ public class Cashier extends User implements Employee , Serializable {
 
         } catch (EOFException e) {
             //
+        } catch(FileNotFoundException e){
+            //
         } catch (Exception e) {
             e.printStackTrace();
         }

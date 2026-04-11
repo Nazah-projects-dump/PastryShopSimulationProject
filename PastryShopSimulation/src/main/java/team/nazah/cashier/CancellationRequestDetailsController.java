@@ -3,6 +3,7 @@ package team.nazah.cashier;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import team.nazah.customer.Order;
 
 public class CancellationRequestDetailsController
 {
@@ -23,6 +24,17 @@ public class CancellationRequestDetailsController
 
     @javafx.fxml.FXML
     public void initialize() {
+    }
+
+    private Order order;
+    private Cashier cashier;
+
+    public void receiveOrder(Order order) {
+        this.order = order;
+    }
+
+    public void receiveCashier(Cashier cashier) {
+        this.cashier = cashier;
     }
 
     @javafx.fxml.FXML
