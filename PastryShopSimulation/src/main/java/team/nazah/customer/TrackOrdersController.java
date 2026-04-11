@@ -44,7 +44,7 @@ public class TrackOrdersController
         ArrayList<Order> customerOrders = new ArrayList<>();
 
         for (Order o : allOrders) {
-            if (o.getCustomerName().equals(currentCustomer.getName())) {
+            if (o.getCustomer() != null && o.getCustomer().getUserId().equals(currentCustomer.getUserId())){
                 customerOrders.add(o);
             }
         }
@@ -82,14 +82,14 @@ public class TrackOrdersController
             return;
         }
 
-        selectedOrder.updateStatus(OrderStatus.CANCELLED);
+        selectedOrder.updateStatus(OrderStatus.CANCEL_REQUESTED);
 
         Order.saveOrder(selectedOrder);
 
         loadOrders();
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Order cancelled successfully.");
+        alert.setContentText("Cancel request sent to cashier.");
         alert.show();
     }
 

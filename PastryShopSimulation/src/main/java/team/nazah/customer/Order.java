@@ -133,20 +133,38 @@ public class Order implements Serializable {
 
     public static void saveOrder(Order order) {
         try {
+            File file = new File("Order.bin");
+            ArrayList<Order> orders = new ArrayList<>();
+            if (file.exists()) {
+                ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
 
-            File f = new File("Order.bin");
-            FileOutputStream fos;
-            ObjectOutputStream oos;
+                try {
+                    while (true) {
+                        Order o = (Order) ois.readObject();
+                        orders.add(o);
+                    }
+                } catch (EOFException e) {
+                    //
+                }
 
-            if (f.exists()) {
-                fos = new FileOutputStream(f, true);
-                oos = new AppendableObjectOutputStream(fos);
-            } else {
-                fos = new FileOutputStream(f);
-                oos = new ObjectOutputStream(fos);
+                ois.close();
             }
 
-            oos.writeObject(order);
+            for (int i = 0; i < orders.size(); i++) {
+                if (orders.get(i).getOrderId().equals(order.getOrderId())) {
+                    orders.remove(i);
+                    break;
+                }
+            }
+
+            orders.add(order);
+
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
+
+            for (int i = 0; i < orders.size(); i++) {
+                oos.writeObject(orders.get(i));
+            }
+
             oos.close();
 
         } catch (Exception e) {
@@ -165,6 +183,7 @@ public class Order implements Serializable {
                 Order order = (Order) ois.readObject();
                 orders.add(order);
             }
+
 
         } catch (EOFException e) {
             //
