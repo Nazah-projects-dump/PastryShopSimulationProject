@@ -6,19 +6,16 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team.nazah.cashier.IncomingOrderDetailsController">
    <children>
-      <Button layoutX="246.0" layoutY="345.0" mnemonicParsing="false" onAction="#finalizeOrderButtonOnAction" text="Finalize Order" />
+      <Button layoutX="178.0" layoutY="293.0" mnemonicParsing="false" onAction="#finalizeOrderButtonOnAction" prefHeight="78.0" prefWidth="245.0" text="Finalize Order" />
       <Button layoutX="534.0" layoutY="345.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
-      <Label fx:id="orderDetailsLabel" layoutX="229.0" layoutY="24.0" prefHeight="78.0" prefWidth="142.0" text="Order Details :" />
-      <Label layoutX="56.0" layoutY="290.0" text="Enter Payment Amount : " />
-      <TextField fx:id="paymentAmountTextField" layoutX="225.0" layoutY="286.0" />
-      <Button layoutX="418.0" layoutY="286.0" mnemonicParsing="false" onAction="#issueReceiptButtonOnAction" text="Issue Receipt" />
-      <Label layoutX="56.0" layoutY="130.0" text="Enter Discount Amount : " />
-      <TextField fx:id="discountTextField" layoutX="225.0" layoutY="126.0" />
-      <Button layoutX="418.0" layoutY="126.0" mnemonicParsing="false" onAction="#applyDiscountButtonOnAction" text="Apply Discount" />
+      <Label fx:id="orderDetailsLabel" alignment="CENTER" layoutX="197.0" layoutY="24.0" prefHeight="101.0" prefWidth="198.0" style="-fx-border-color: pink;" />
+      <Button layoutX="375.0" layoutY="210.0" mnemonicParsing="false" onAction="#issueReceiptButtonOnAction" prefHeight="26.0" prefWidth="165.0" text="Issue Receipt" />
+      <Label layoutX="56.0" layoutY="152.0" text="Enter Promo Code : " />
+      <TextField fx:id="promoCodeTextField" layoutX="186.0" layoutY="148.0" />
+      <Button layoutX="375.0" layoutY="148.0" mnemonicParsing="false" onAction="#addPromoCodeButtonOnAction" text="Add Promo Code to Receipt" />
       <Label layoutX="56.0" layoutY="215.0" text="Update Order Status :" />
-      <ComboBox fx:id="updateOrderStatusComboBox" layoutX="225.0" layoutY="211.0" prefWidth="150.0" />
+      <ComboBox fx:id="updateOrderStatusComboBox" layoutX="186.0" layoutY="211.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

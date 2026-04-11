@@ -17,11 +17,9 @@ public class IncomingOrderDetailsController
     @javafx.fxml.FXML
     private Label orderDetailsLabel;
     @javafx.fxml.FXML
-    private TextField paymentAmountTextField;
-    @javafx.fxml.FXML
-    private TextField discountTextField;
-    @javafx.fxml.FXML
     private ComboBox updateOrderStatusComboBox;
+    @javafx.fxml.FXML
+    private TextField promoCodeTextField;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -52,10 +50,10 @@ public class IncomingOrderDetailsController
     }
 
     @javafx.fxml.FXML
-    public void applyDiscountButtonOnAction(ActionEvent actionEvent) {
+    public void issueReceiptButtonOnAction(ActionEvent actionEvent) {
     }
 
     @javafx.fxml.FXML
-    public void issueReceiptButtonOnAction(ActionEvent actionEvent) {
+    public void addPromoCodeButtonOnAction(ActionEvent actionEvent) {
     }
 }
