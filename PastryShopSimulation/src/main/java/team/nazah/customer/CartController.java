@@ -106,7 +106,7 @@ public class CartController
             errorAlert.show();
         }
         cart.calculateTotal();
-        cartTotalLabel.setText(String.valueOf(cart.getTotal()));
+        cartTotalLabel.setText("Total: " + String.valueOf(cart.getTotal()));
     }
 
     @javafx.fxml.FXML

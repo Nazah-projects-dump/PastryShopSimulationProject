@@ -1,8 +1,13 @@
 package team.nazah.customer;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.time.LocalDate;
 
 public class PaymentScreenController
@@ -40,10 +45,11 @@ public class PaymentScreenController
     public void receiveOrder(Order order) {
         this.order = order;
 
-        paymentScreenOrderIdLabel.setText(order.getOrderId());
-        paymentScreenTotalLabel.setText(String.valueOf(order.getTotalAmount()));
+        paymentScreenOrderIdLabel.setText("Order ID : " + order.getOrderId());
+        paymentScreenTotalLabel.setText("Total : " + String.valueOf(order.getTotalAmount()));
     }
 
+    @javafx.fxml.FXML
     public void paymentMethodOnAction(ActionEvent event) {
 
         boolean isCard = paymentMethodCardRadioButton.isSelected();
@@ -54,7 +60,7 @@ public class PaymentScreenController
     }
 
     @javafx.fxml.FXML
-    public void payNowButtonOnAction(ActionEvent actionEvent) {
+    public void payNowButtonOnAction(ActionEvent actionEvent) throws IOException {
 
         if (order == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -129,16 +135,18 @@ public class PaymentScreenController
             alert.setContentText("Payment successful!");
             alert.show();
 
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/CustomerDashboard.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+
         } else {
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Payment failed.");
             alert.show();
         }
-    }
-
-    @javafx.fxml.FXML
-    public void cancelOrderButtonOnAction(ActionEvent actionEvent) {
-        
     }
 }
