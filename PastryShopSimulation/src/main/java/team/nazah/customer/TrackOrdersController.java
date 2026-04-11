@@ -13,8 +13,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import static team.nazah.customer.Order.loadOrders;
-
 public class TrackOrdersController
 {
     @javafx.fxml.FXML
@@ -46,7 +44,7 @@ public class TrackOrdersController
         ArrayList<Order> customerOrders = new ArrayList<>();
 
         for (Order o : allOrders) {
-            if (o.getCustomer() != null && o.getCustomer().getName().equals(currentCustomer.getName())) {
+            if (o.getCustomerName().equals(currentCustomer.getName())) {
                 customerOrders.add(o);
             }
         }
@@ -109,6 +107,9 @@ public class TrackOrdersController
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/CustomerDashboard.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
+
+        CustomerDashboardController controller = fxmlLoader.getController();
+        controller.setCustomer(currentCustomer);
 
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 

@@ -14,6 +14,7 @@ public class Order implements Serializable {
     private OrderStatus status;
     private LocalDate date;
     private Customer customer;
+    private String customerName;
     private static final long serialVersionUID = 1L;
 
     public Order() {
@@ -26,6 +27,7 @@ public class Order implements Serializable {
         this.status = status;
         this.date = date;
         this.customer = customer;
+        this.customerName = customer.getName();
     }
 
     public String getOrderId() {
@@ -74,6 +76,14 @@ public class Order implements Serializable {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     @Override

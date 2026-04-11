@@ -53,7 +53,6 @@ public class MenuController
     }
 
     private Customer currentCustomer;
-
     public void receiveData(Customer customer) {
         this.currentCustomer = customer;
     }
@@ -133,6 +132,9 @@ public class MenuController
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/CustomerDashboard.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
+
+        CustomerDashboardController controller = fxmlLoader.getController();
+        controller.setCustomer(currentCustomer);
 
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 

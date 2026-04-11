@@ -21,7 +21,6 @@ public class CustomerDashboardController
 
     public void setCustomer(Customer customer) {
         this.currentCustomer = customer;
-        System.out.println("Dashboard received: " + customer);
     }
 
     @javafx.fxml.FXML

@@ -49,6 +49,11 @@ public class PaymentScreenController
         paymentScreenTotalLabel.setText("Total : " + String.valueOf(order.getTotalAmount()));
     }
 
+    private Customer currentCustomer;
+    public void receiveData(Customer customer) {
+        this.currentCustomer = customer;
+    }
+
     @javafx.fxml.FXML
     public void paymentMethodOnAction(ActionEvent event) {
 
@@ -140,6 +145,10 @@ public class PaymentScreenController
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/CustomerDashboard.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
+
+            CustomerDashboardController controller = fxmlLoader.getController();
+            controller.setCustomer(currentCustomer);
+
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();

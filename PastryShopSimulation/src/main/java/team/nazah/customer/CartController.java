@@ -93,6 +93,7 @@ public class CartController
             Scene scene = new Scene(fxmlLoader.load());
             PaymentScreenController controller = fxmlLoader.getController();
             controller.receiveOrder(order);
+            controller.receiveData(currentCustomer);
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();
@@ -122,6 +123,9 @@ public class CartController
 
         Scene scene = new Scene(fxmlLoader.load());
 
+        MenuController menuController = fxmlLoader.getController();
+        menuController.receiveData(currentCustomer);
+
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
         stage.setScene(scene);
@@ -135,6 +139,9 @@ public class CartController
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/CustomerDashboard.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
+
+        CustomerDashboardController controller = fxmlLoader.getController();
+        controller.setCustomer(currentCustomer);
 
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 

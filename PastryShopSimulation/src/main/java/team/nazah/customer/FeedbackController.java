@@ -70,6 +70,9 @@ public class FeedbackController
 
         Scene scene = new Scene(fxmlLoader.load());
 
+        CustomerDashboardController controller = fxmlLoader.getController();
+        controller.setCustomer(currentCustomer);
+
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
         stage.setScene(scene);
