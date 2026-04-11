@@ -1,9 +1,11 @@
 package team.nazah.cashier;
 
+import common.AppendableObjectOutputStream;
 import team.nazah.customer.Order;
 
-import java.io.Serializable;
+import java.io.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Receipt implements Serializable {
     private String receiptId;
@@ -94,5 +96,48 @@ public class Receipt implements Serializable {
 
     public void printReceipt() {
         System.out.println(generateReceipt());
+    }
+
+    public static void saveReceipt(Receipt receipt) {
+        try {
+            File f = new File("Receipt.bin");
+            FileOutputStream fos;
+            ObjectOutputStream oos;
+
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+
+            oos.writeObject(receipt);
+            oos.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static ArrayList<Receipt> loadReceipts() {
+        ArrayList<Receipt> list = new ArrayList<>();
+
+        try {
+            FileInputStream fis = new FileInputStream("Receipt.bin");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+
+            while (true) {
+                Receipt r = (Receipt) ois.readObject();
+                list.add(r);
+            }
+
+        } catch (EOFException e) {
+            //
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
     }
 }
