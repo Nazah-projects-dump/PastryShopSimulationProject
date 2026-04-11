@@ -8,17 +8,11 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team.nazah.cashier.CancellationRequestDetailsController">
    <children>
       <Label alignment="CENTER" layoutX="22.0" layoutY="24.0" prefHeight="39.0" prefWidth="182.0" style="-fx-background-color: pink;" text="Cancellation Request" />
-      <Label fx:id="orderIdlabel" layoutX="57.0" layoutY="95.0" text="Order ID : " />
-      <Label fx:id="cancellationStatusLabel" alignment="CENTER" layoutX="233.0" layoutY="164.0" prefHeight="63.0" prefWidth="144.0" text="Cancellation Status" />
-      <Button layoutX="421.0" layoutY="183.0" mnemonicParsing="false" onAction="#confirmCancellationButtonOnAction" text="Confirm Cancellation" />
-      <Label fx:id="orderStatusLabel" layoutX="241.0" layoutY="95.0" text="Order Status : " />
-      <Label fx:id="totalLabel" layoutX="400.0" layoutY="95.0" text="Total :" />
-      <Label layoutX="47.0" layoutY="164.0" text="Reason for cancellation :" />
-      <TextField fx:id="reasonTextField" layoutX="39.0" layoutY="196.0" />
-      <Label fx:id="refundStatusLabel" alignment="CENTER" layoutX="361.0" layoutY="302.0" prefHeight="63.0" prefWidth="144.0" text="Refund Status" />
-      <Button layoutX="251.0" layoutY="321.0" mnemonicParsing="false" onAction="#refundButtonOnAction" text="Refund" />
-      <Label alignment="CENTER" layoutX="20.0" layoutY="243.0" prefHeight="39.0" prefWidth="182.0" style="-fx-background-color: pink;" text="Refund" />
-      <Label fx:id="refundAmountLabel" layoutX="57.0" layoutY="325.0" text="Refundable amount : " />
+      <Label fx:id="orderDetailslabel" alignment="CENTER" layoutX="35.0" layoutY="95.0" prefHeight="142.0" prefWidth="192.0" style="-fx-border-color: pink;" />
+      <Label layoutX="277.0" layoutY="86.0" text="Reason for cancellation :" />
+      <TextField fx:id="reasonTextField" layoutX="274.0" layoutY="114.0" prefHeight="50.0" prefWidth="218.0" />
+      <Button layoutX="274.0" layoutY="188.0" mnemonicParsing="false" onAction="#confirmButtonOnAction" prefHeight="156.0" prefWidth="218.0" text="Confirm Cancellation and Refund" />
+      <Label fx:id="refundAmountLabel" alignment="CENTER" layoutX="35.0" layoutY="258.0" prefHeight="86.0" prefWidth="192.0" style="-fx-border-color: pink;" text="Refundable amount : " />
       <Button layoutX="528.0" layoutY="352.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
    </children>
 </AnchorPane>
