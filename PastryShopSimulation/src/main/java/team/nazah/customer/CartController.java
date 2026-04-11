@@ -38,7 +38,7 @@ public class CartController
         cartPriceColumn.setCellValueFactory(data -> new SimpleDoubleProperty(data.getValue().getItem().getPrice()).asObject());
 
         cartTableView.getItems().addAll(cart.getItems());
-        cartTotalLabel.setText(String.valueOf(cart.getTotal()));
+        cartTotalLabel.setText("Total: " + String.valueOf(cart.getTotal()));
     }
 
     private Customer currentCustomer;
@@ -85,6 +85,8 @@ public class CartController
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/PaymentScreen.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
+            PaymentScreenController controller = fxmlLoader.getController();
+            controller.receiveOrder(order);
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();

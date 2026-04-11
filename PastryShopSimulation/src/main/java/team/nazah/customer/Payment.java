@@ -1,7 +1,10 @@
 package team.nazah.customer;
 
-import java.io.Serializable;
+import common.AppendableObjectOutputStream;
+
+import java.io.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Payment implements Serializable {
@@ -74,26 +77,13 @@ public class Payment implements Serializable {
                 '}';
     }
 
-    private String generatePaymentId() {
+    public static String generatePaymentId() {
         Random r = new Random();
         return String.format("%06d", r.nextInt(1000000));
     }
 
     public boolean processPayment(double amount) {
-        if (amount != this.amount) {
-            return false;
-        }
-
-        if (!verifyPayment()) {
-            return false;
-        }
-
-        updateOrderStatus();
-        return true;
-    }
-
-    public boolean verifyPayment() {
-        if (paymentMethod == null || paymentMethod.isEmpty()) {
+        if (amount <= 0) {
             return false;
         }
 
@@ -104,4 +94,50 @@ public class Payment implements Serializable {
         order.updateStatus(OrderStatus.PAID);
     }
 
+    public static void savePayment(Payment payment) {
+        try {
+            File f = new File("Payment.bin");
+            FileOutputStream fos;
+            ObjectOutputStream oos;
+
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+
+            oos.writeObject(payment);
+            oos.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static ArrayList<Payment> loadPayments() {
+        ArrayList<Payment> payments = new ArrayList<>();
+
+        try {
+            FileInputStream fis = new FileInputStream("Payment.bin");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+
+            while (true) {
+                try {
+                    Payment p = (Payment) ois.readObject();
+                    payments.add(p);
+                } catch (EOFException e) {
+                    break;
+                }
+            }
+
+            ois.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return payments;
+    }
 }

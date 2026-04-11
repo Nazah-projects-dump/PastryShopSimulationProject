@@ -104,7 +104,7 @@ public class Order implements Serializable {
     }
 
     public boolean isCancelable() {
-        if (status == OrderStatus.PENDING || status == OrderStatus.CONFIRMED){
+        if (status == OrderStatus.PENDING || status == OrderStatus.CONFIRMED || status == OrderStatus.PAID){
             return true;
         }else{
             return false;
