@@ -164,4 +164,16 @@ public class Order implements Serializable {
 
         return orders;
     }
+
+    public static void saveAllOrders(ArrayList<Order> orders) {
+        try {
+            File f = new File("Order.bin");
+            FileOutputStream fos = new FileOutputStream(f);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(orders);
+            oos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

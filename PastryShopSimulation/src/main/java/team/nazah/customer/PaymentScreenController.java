@@ -101,6 +101,9 @@ public class PaymentScreenController
                     valid = false;
                     break;
                 }
+            }
+
+            for (int i = 0; i < cardPin.length(); i++) {
                 if (cardPin.charAt(i) < '0' || cardPin.charAt(i) > '9') {
                     valid = false;
                     break;
@@ -137,7 +140,6 @@ public class PaymentScreenController
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/CustomerDashboard.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
-
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();

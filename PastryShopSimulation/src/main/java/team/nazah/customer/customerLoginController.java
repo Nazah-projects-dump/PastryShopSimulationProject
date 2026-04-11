@@ -52,6 +52,10 @@ public class CustomerLoginController
         if (foundCustomer != null) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/CustomerDashboard.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
+
+            CustomerDashboardController controller = fxmlLoader.getController();
+            controller.setCustomer(foundCustomer);
+
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();

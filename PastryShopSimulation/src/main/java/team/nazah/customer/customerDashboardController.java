@@ -3,7 +3,6 @@ package team.nazah.customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -22,6 +21,7 @@ public class CustomerDashboardController
 
     public void setCustomer(Customer customer) {
         this.currentCustomer = customer;
+        System.out.println("Dashboard received: " + customer);
     }
 
     @javafx.fxml.FXML
@@ -31,22 +31,8 @@ public class CustomerDashboardController
 
         Scene scene = new Scene(fxmlLoader.load());
 
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-
-        stage.setScene(scene);
-
-        stage.show();
-    }
-
-    @javafx.fxml.FXML
-    public void viewCartButtonOnAction(ActionEvent actionEvent) throws IOException {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/Cart.fxml"));
-
-        Scene scene = new Scene(fxmlLoader.load());
-
-        CartController cartController = fxmlLoader.getController();
-        cartController.receiveData(currentCustomer);
+        TrackOrdersController controller = fxmlLoader.getController();
+        controller.receiveData(currentCustomer);
 
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
@@ -92,6 +78,9 @@ public class CustomerDashboardController
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/Menu.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
+
+        MenuController menuController = fxmlLoader.getController();
+        menuController.receiveData(currentCustomer);
 
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 

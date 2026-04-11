@@ -6,11 +6,10 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="team.nazah.customer.CustomerDashboardController">
    <children>
-      <Label fx:id="dashboardTestLabel" layoutX="43.0" layoutY="42.0" text="Customer dashboard" />
+      <Label fx:id="dashboardTestLabel" alignment="CENTER" layoutX="209.0" layoutY="39.0" prefHeight="45.0" prefWidth="142.0" style="-fx-background-color: pink;" text="Customer Dashboard" />
       <Button layoutX="85.0" layoutY="132.0" mnemonicParsing="false" onAction="#viewMenuButtonOnAction" text="View Menu" />
       <Button layoutX="253.0" layoutY="200.0" mnemonicParsing="false" onAction="#logoutButtonOnAction" text="Logout" />
-      <Button layoutX="193.0" layoutY="132.0" mnemonicParsing="false" onAction="#viewCartButtonOnAction" text="View Cart" />
-      <Button layoutX="308.0" layoutY="132.0" mnemonicParsing="false" onAction="#trackOrderButtonOnAction" text="Track Order" />
-      <Button layoutX="439.0" layoutY="132.0" mnemonicParsing="false" onAction="#feedbackButtonOnAction" text="Feedback" />
+      <Button layoutX="241.0" layoutY="132.0" mnemonicParsing="false" onAction="#trackOrderButtonOnAction" text="Track Order" />
+      <Button layoutX="405.0" layoutY="132.0" mnemonicParsing="false" onAction="#feedbackButtonOnAction" text="Feedback" />
    </children>
 </AnchorPane>

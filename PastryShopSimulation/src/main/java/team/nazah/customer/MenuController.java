@@ -52,6 +52,12 @@ public class MenuController
 
     }
 
+    private Customer currentCustomer;
+
+    public void receiveData(Customer customer) {
+        this.currentCustomer = customer;
+    }
+
     @javafx.fxml.FXML
     public void applyFiltersButtonOnAction(ActionEvent actionEvent) {
         Menu menu = Menu.loadMenu();
@@ -110,6 +116,9 @@ public class MenuController
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/nazah/Cart.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
+
+        CartController controller = fxmlLoader.getController();
+        controller.receiveData(currentCustomer);
 
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 

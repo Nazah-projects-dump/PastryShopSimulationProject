@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Customer extends User implements Serializable {
     private Cart cart;
-    private ArrayList<Order> orders;
+    private ArrayList<Order> orders = new ArrayList<>();
     private static final long serialVersionUID = 1L;
 
     public Customer() {
