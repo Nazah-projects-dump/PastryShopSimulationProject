@@ -45,6 +45,9 @@ public class CustomerDashboardController
 
         Scene scene = new Scene(fxmlLoader.load());
 
+        CartController cartController = fxmlLoader.getController();
+        cartController.receiveData(currentCustomer);
+
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
         stage.setScene(scene);

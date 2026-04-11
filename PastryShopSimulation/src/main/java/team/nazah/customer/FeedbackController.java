@@ -27,9 +27,9 @@ public class FeedbackController
         ratingComboBox.getItems().addAll("⭐⭐⭐⭐⭐", "⭐⭐⭐⭐", "⭐⭐⭐", "⭐⭐","⭐");
     }
 
-    private Customer customer;
+    private Customer currentCustomer;
     public void receiveData(Customer customer) {
-        this.customer = customer;
+        this.currentCustomer = customer;
     }
 
     @javafx.fxml.FXML
@@ -51,7 +51,7 @@ public class FeedbackController
                 randomFeedbackId,
                 rating,
                 comment,
-                customer
+                currentCustomer
         );
 
         ArrayList<Feedback> feedbacks = Feedback.loadFeedbacks();

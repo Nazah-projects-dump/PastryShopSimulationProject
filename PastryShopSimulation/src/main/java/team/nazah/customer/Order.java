@@ -1,6 +1,8 @@
 package team.nazah.customer;
 
-import java.io.Serializable;
+import common.AppendableObjectOutputStream;
+
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
@@ -112,9 +114,53 @@ public class Order implements Serializable {
         return status;
     }
 
-    public String generateOrderID() {
+    public static String generateOrderID() {
         Random r = new Random();
         String randomOrderId = String.format("%06d",r.nextInt(1000000));
         return "ORD-" + randomOrderId;
+    }
+
+    public static void saveOrder(Order order) {
+        try {
+
+            File f = new File("Order.bin");
+            FileOutputStream fos;
+            ObjectOutputStream oos;
+
+            if (f.exists()) {
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+            } else {
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+
+            oos.writeObject(order);
+            oos.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static ArrayList<Order> loadOrders() {
+        ArrayList<Order> orders = new ArrayList<>();
+
+        try {
+            FileInputStream fis = new FileInputStream("Order.bin");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+
+            while (true) {
+                Order order = (Order) ois.readObject();
+                orders.add(order);
+            }
+
+        } catch (EOFException e) {
+            //
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return orders;
     }
 }
