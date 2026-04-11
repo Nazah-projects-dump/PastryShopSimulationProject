@@ -84,15 +84,7 @@ public class TrackOrdersController
 
         selectedOrder.updateStatus(OrderStatus.CANCELLED);
 
-        ArrayList<Order> allOrders = Order.loadOrders();
-
-        for (Order o : allOrders) {
-            if (o.getOrderId().equals(selectedOrder.getOrderId())) {
-                o.setStatus(OrderStatus.CANCELLED);
-            }
-        }
-
-        Order.saveAllOrders(allOrders);
+        Order.saveOrder(selectedOrder);
 
         loadOrders();
 

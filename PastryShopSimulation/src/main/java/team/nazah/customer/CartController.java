@@ -75,12 +75,6 @@ public class CartController
             order.updateStatus(OrderStatus.CONFIRMED);
             Order.saveOrder(order);
 
-            if (currentCustomer.getOrders() == null) {
-                currentCustomer.setOrders(new ArrayList<>());
-            }
-
-            currentCustomer.getOrders().add(order);
-
             cart.clearCart();
             Cart.saveCart(cart);
 
