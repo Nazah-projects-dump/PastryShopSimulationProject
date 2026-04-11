@@ -37,6 +37,7 @@ public class CashierDashboardController
         incomingOrdersColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getOrderId()));
         incomingOrdersStatusColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getStatus().toString()));
         cancellationReqsColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getOrderId()));
+        loadTables();
     }
 
     private Cashier currentCashier;
