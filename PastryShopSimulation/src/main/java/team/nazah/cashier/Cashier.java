@@ -3,8 +3,10 @@ package team.nazah.cashier;
 import common.AppendableObjectOutputStream;
 import common.Employee;
 import common.User;
+import team.nazah.customer.OrderStatus;
 
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Cashier extends User implements Employee , Serializable {
@@ -58,7 +60,43 @@ public class Cashier extends User implements Employee , Serializable {
 
     @Override
     public boolean login(String name, String password) {
-        return false;
+        return this.getName().equals(name) && this.password.equals(password);
+    }
+
+    public void viewIncomingOrders() {
+        //
+    }
+
+    public void searchOrders() {
+        //
+    }
+
+    public void confirmOrder(String orderId) {
+        //
+    }
+
+    public void processPayment(String orderId) {
+        //
+    }
+
+    public void applyDiscount(String orderId, double discount) {
+        //
+    }
+
+    public void updateOrderStatus(String orderId, OrderStatus status) {
+        //
+    }
+
+    public void processCancellation(String orderId) {
+        //
+    }
+
+    public void processRefund(String orderId) {
+        //
+    }
+
+    public void viewSalesSummary(LocalDate date) {
+        //
     }
 
     public static void saveCashier(Cashier cashier) {

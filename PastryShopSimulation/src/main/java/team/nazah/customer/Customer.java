@@ -79,6 +79,22 @@ public class Customer extends User implements Serializable {
         //
     }
 
+    public void placeOrder() {
+        //
+    }
+
+    public void trackOrder(String orderId) {
+        //
+    }
+
+    public void cancelOrder(String orderId) {
+        //
+    }
+
+    public void makePayment(String orderId) {
+        //
+    }
+
     public static void saveCustomer(Customer customer) {
         try {
             File f = new File("Customer.bin");
