@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -12,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class FeedbackController
 {
@@ -44,9 +44,11 @@ public class FeedbackController
         }
 
         int rating = ratingString.length();
+        Random r = new Random();
+        String randomFeedbackId = String.format("%06d",r.nextInt(1000000));
 
         Feedback feedback = new Feedback(
-                java.util.UUID.randomUUID().toString(),
+                randomFeedbackId,
                 rating,
                 comment,
                 customer
