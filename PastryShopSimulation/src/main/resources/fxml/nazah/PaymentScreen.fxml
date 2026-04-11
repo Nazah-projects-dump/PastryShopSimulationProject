@@ -20,5 +20,6 @@
       <TextField fx:id="cardNumberTextField" layoutX="400.0" layoutY="247.0" />
       <TextField fx:id="cardPinTextField" layoutX="400.0" layoutY="281.0" />
       <Button layoutX="524.0" layoutY="350.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
+      <Label alignment="CENTER" layoutX="36.0" layoutY="25.0" prefHeight="40.0" prefWidth="157.0" style="-fx-background-color: pink;" text="Payment" />
    </children>
 </AnchorPane>

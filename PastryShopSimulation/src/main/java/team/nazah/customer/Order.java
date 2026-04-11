@@ -14,6 +14,7 @@ public class Order implements Serializable {
     private OrderStatus status;
     private LocalDate date;
     private Customer customer;
+    private static final long serialVersionUID = 1L;
 
     public Order() {
     }
