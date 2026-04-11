@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import team.nazah.cashier.Cashier;
 import team.nazah.customer.Customer;
 import team.nazah.customer.Menu;
 
@@ -18,6 +19,7 @@ public class Main extends Application {
 
         //Customer.createCustomers();
         // Menu.createMenu();
+        //Cashier.createCashiers();
     }
 }
 

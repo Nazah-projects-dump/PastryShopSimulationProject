@@ -1,7 +1,13 @@
 package team.nazah.cashier;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class CashierDashboardController
 {
@@ -30,8 +36,23 @@ public class CashierDashboardController
     public void initialize() {
     }
 
+    private Cashier currentCashier;
+
+    public void receiveData(Cashier cashier) {
+        this.currentCashier = cashier;
+    }
+
     @javafx.fxml.FXML
-    public void logoutButtonOnAction(ActionEvent actionEvent) {
+    public void logoutButtonOnAction(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
+
+        Scene scene = new Scene(fxmlLoader.load());
+
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        stage.setScene(scene);
+
+        stage.show();
     }
 
     @javafx.fxml.FXML
