@@ -12,6 +12,7 @@ import team.nazah.customer.OrderStatus;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class CashierDashboardController
 {
@@ -30,13 +31,14 @@ public class CashierDashboardController
     @javafx.fxml.FXML
     private TextField orderIdFilterTextField;
     @javafx.fxml.FXML
-    private ComboBox<String> orderStatusFilterComboBox;
+    private ComboBox<OrderStatus> orderStatusFilterComboBox;
 
     @javafx.fxml.FXML
     public void initialize() {
         incomingOrdersColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getOrderId()));
         incomingOrdersStatusColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getStatus().toString()));
         cancellationReqsColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getOrderId()));
+        orderStatusFilterComboBox.getItems().addAll(OrderStatus.values());
         loadTables();
     }
 
@@ -101,10 +103,42 @@ public class CashierDashboardController
 
     @javafx.fxml.FXML
     public void resetFiltersButtonOnAction(ActionEvent actionEvent) {
+        orderIdFilterTextField.clear();
+        orderStatusFilterComboBox.getSelectionModel().clearSelection();
+        loadTables();
     }
 
     @javafx.fxml.FXML
     public void ApplyFiltersButtonOnAction(ActionEvent actionEvent) {
+
+        ArrayList<Order> allOrders = Order.loadOrders();
+
+        String inputId = orderIdFilterTextField.getText();
+        OrderStatus selectedStatus = orderStatusFilterComboBox.getValue();
+
+        ArrayList<Order> filteredIncoming = new ArrayList<>();
+
+        for (Order o : allOrders) {
+            boolean isIncoming = o.getStatus() == OrderStatus.PENDING || o.getStatus() == OrderStatus.CONFIRMED || o.getStatus() == OrderStatus.PAID;
+
+            if (!isIncoming) continue;
+            boolean matchesId = true;
+            boolean matchesStatus = true;
+
+            if (inputId != null && !inputId.trim().isEmpty()) {
+                matchesId = o.getOrderId().equalsIgnoreCase(inputId.trim());
+            }
+
+            if (selectedStatus != null) {
+                matchesStatus = o.getStatus() == selectedStatus;
+            }
+
+            if (matchesId && matchesStatus) {
+                filteredIncoming.add(o);
+            }
+        }
+
+        incomingOrdersTable.getItems().setAll(filteredIncoming);
     }
 
     @javafx.fxml.FXML
