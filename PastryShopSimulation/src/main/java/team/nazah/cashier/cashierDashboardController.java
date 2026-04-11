@@ -98,7 +98,12 @@ public class CashierDashboardController
     }
 
     @javafx.fxml.FXML
-    public void viewSalesSummaryButtonOnAction(ActionEvent actionEvent) {
+    public void viewSalesSummaryButtonOnAction(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/nazah/SalesSummary.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @javafx.fxml.FXML

@@ -12,12 +12,14 @@
       <Label alignment="CENTER" layoutX="218.0" layoutY="37.0" prefHeight="32.0" prefWidth="163.0" style="-fx-background-color: pink;" text="Sales Summary" />
       <Label layoutX="180.0" layoutY="97.0" text="Pick a date :" />
       <DatePicker fx:id="salesSummaryDatePicker" layoutX="255.0" layoutY="93.0" />
-      <TableView fx:id="salesSummaryTableView" layoutX="200.0" layoutY="154.0" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="salesSummaryTableView" layoutX="300.0" layoutY="148.0" prefHeight="200.0" prefWidth="200.0">
         <columns>
           <TableColumn fx:id="orderIdColumn" prefWidth="100.0" text="Order ID" />
           <TableColumn fx:id="totalColumn" prefWidth="99.20001220703125" text="Total" />
         </columns>
       </TableView>
       <Button layoutX="524.0" layoutY="347.0" mnemonicParsing="false" onAction="#backButtonOnAction" text="Back" />
+      <Label fx:id="showReportLabel" alignment="CENTER" layoutX="114.0" layoutY="148.0" prefHeight="141.0" prefWidth="151.0" style="-fx-border-color: pink;" />
+      <Button layoutX="114.0" layoutY="309.0" mnemonicParsing="false" onAction="#generateReportButtonOnAction" prefHeight="26.0" prefWidth="151.0" text="Generate report" />
    </children>
 </AnchorPane>
